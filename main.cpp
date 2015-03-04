@@ -44,15 +44,15 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowPosition(100,100);
     glutInitWindowSize(600,400);
-    glutCreateWindow("УбиВАТЬ");
-    // регистрация
+    glutCreateWindow("Life");
+    // СЂРµРіРёСЃС‚СЂР°С†РёСЏ
     glutDisplayFunc(renderScene);
     glutKeyboardFunc(key);
     glutMouseFunc(mouse);
-    // Новая функция изменения размеров окна
+    // РќРѕРІР°СЏ С„СѓРЅРєС†РёСЏ РёР·РјРµРЅРµРЅРёСЏ СЂР°Р·РјРµСЂРѕРІ РѕРєРЅР°
     glutReshapeFunc(changeSize);
     glutIdleFunc(idle);
-    // основной цикл
+    // РѕСЃРЅРѕРІРЅРѕР№ С†РёРєР»
     glutMainLoop();
 
 }
