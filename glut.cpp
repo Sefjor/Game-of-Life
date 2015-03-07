@@ -56,7 +56,7 @@ void key(unsigned char key, int x, int y)
         break;
     case 'r':
     case 'R':
-        randArr();
+        Arr = randArr(Arr);
         break;
     case 's':
       save1Arr = saveArr();

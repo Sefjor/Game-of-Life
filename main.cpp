@@ -4,19 +4,18 @@
 
 int main(int argc, char **argv)
 {
-    randArr();
+   Arr = randArr(Arr);
+
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowPosition(50,50);
     glutInitWindowSize(800,800);
     glutCreateWindow("LIFE");
-    // регистрация
     glutDisplayFunc(renderScene);
     glutKeyboardFunc(key);
     glutMouseFunc(mouse);
     glutReshapeFunc(changeSize);
     glutIdleFunc(idle);
-    // основной цикл
     glutMainLoop();
 
 }

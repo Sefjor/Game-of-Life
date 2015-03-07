@@ -16,7 +16,7 @@ extern Arr2d save1Arr;
 extern Arr2d Arr;
 void deleteArr(void);
 void printtext(float num, float posX, float posY);
-void randArr(void);
+Arr2d randArr(Arr2d what_to_rand);
 Arr2d saveArr(void);
 void loadArr(Arr2d whattoload);
 void changeSize(int w, int h);
