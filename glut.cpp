@@ -56,18 +56,19 @@ void renderScene(void)
                 glVertex2f(rx - size + arrX * size * 2, ry-size + j * size * 2); //2.85 1.75
             }
         glEnd();
-        printtext(delay, rx - size ,ry + arrY * size * 2 - 0.02);
-       printtext(dx, rx + arrY * size - size, ry + arrY * size * 2 - 0.02);
-       printtext(dy, rx + arrY * size * 2 - size * 2 , ry + arrY * size * 2 - 0.02);
+        glColor3f(0.3f,0.5f,0.5f);
+        printtext("delay=", delay, rx - size ,ry + arrY * size * 2 - 0.02);
+       printtext("dx=", dx, rx + arrY * size - 4 * size, ry + arrY * size * 2 - 0.02);
+       printtext("dy", dy, rx + arrY * size * 2 - size * 8 , ry + arrY * size * 2 - 0.02);
         glutSwapBuffers();
     }
 }
-void printtext(float num, float posX, float posY)
+void printtext(string txt, float num, float posX, float posY)
 {
-    std::string s;
-    s = to_string(num);
+    stringstream s;
+    s << txt << num;
      glRasterPos2f(posX, posY);
-   glutBitmapString (GLUT_BITMAP_HELVETICA_12, reinterpret_cast<const unsigned char*>(s.c_str()));
+   glutBitmapString (GLUT_BITMAP_HELVETICA_12, reinterpret_cast<const unsigned char*>(s.str().c_str()));
 }
 
 

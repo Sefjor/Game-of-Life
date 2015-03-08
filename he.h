@@ -5,7 +5,8 @@
 #include <array>
 #include <pthread.h>
 #include <cstring>
-
+#include <sstream>
+#include "myArray.h"
 using namespace std;
 extern bool pause;
 extern float delay;
@@ -18,7 +19,7 @@ extern float dy;
 extern float rx;
 extern float ry;
 void deleteArr(void);
-void printtext(float num, float posX, float posY);
+void printtext(string, float num, float posX, float posY);
 Arr2d randArr(Arr2d what_to_rand);
 Arr2d saveArr(void);
 void loadArr(Arr2d whattoload);

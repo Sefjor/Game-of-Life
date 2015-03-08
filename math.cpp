@@ -5,16 +5,6 @@ void deleteArr(void)
         for (int j = 0; j < arrY; j++)
             Arr[i][j] =  0;
 }
-class myArray
-{
-    Arr2d A;
-public:
-    int element (int x, int y)
-    {
-        return A[x][y];
-        cout << A.begin() << " ";
-    }
-};
 
 Arr2d randArr(Arr2d A)
 {
