@@ -1,40 +1,39 @@
 #include "he.h"
-#include <random>
 void deleteArr(void)
 {
     for (int i = 0; i < arrX; i++)
         for (int j = 0; j < arrY; j++)
             Arr[i][j] =  0;
 }
-class myArray{
+class myArray
+{
     Arr2d A;
 public:
-    int element (int x, int y) {
+    int element (int x, int y)
+    {
         return A[x][y];
-cout << A.begin() << " ";
+        cout << A.begin() << " ";
     }
 };
 
-
-
 Arr2d randArr(Arr2d A)
 {
-srand(time(0));
-for (auto& i: Arr)
-    for (auto& j: i)
-    j = rand()%2;
-            return A;
+    srand(time(0));
+    for (auto& i: A)
+        for (auto& j: i)
+            j = rand()%2;
+    return A;
 
 }
 Arr2d saveArr(void)
 {
     Arr2d A;
     for (auto x : A)
-    for (auto i = begin(x); i != end(x); i++)
-        cout << i << " ";
-        //for (int jj = 0; jj < arrY; jj++)
-          //  savedArr[ii][jj] =   Arr[ii][jj];
-           // return savedArr;
+        for (auto i = begin(x); i != end(x); i++)
+            cout << i << " ";
+    //for (int jj = 0; jj < arrY; jj++)
+    //  savedArr[ii][jj] =   Arr[ii][jj];
+    return A;
 }
 void loadArr(Arr2d arrsave)
 {

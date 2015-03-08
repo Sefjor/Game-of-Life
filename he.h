@@ -1,19 +1,22 @@
-#include <gl/freeglut.h>
-#include <ctime>
-#include <cstdlib>
+#include <GL/freeglut.h>
 #include <iostream>
-#include <string>
-#define arrX 39
-#define arrY 39
-#include <stdio.h>
-#include <deque>
+#define arrX 29
+#define arrY 29
 #include <array>
+#include <pthread.h>
+#include <cstring>
+
 using namespace std;
 extern bool pause;
 extern float delay;
 typedef array <array <int, arrX>, arrY> Arr2d;
 extern Arr2d save1Arr;
 extern Arr2d Arr;
+extern float size;
+extern float dx;
+extern float dy;
+extern float rx;
+extern float ry;
 void deleteArr(void);
 void printtext(float num, float posX, float posY);
 Arr2d randArr(Arr2d what_to_rand);
