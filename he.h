@@ -3,11 +3,16 @@
 #define arrX 29
 #define arrY 29
 #include <array>
-#include <pthread.h>
 #include <cstring>
 #include <sstream>
 #include "myArray.h"
 using namespace std;
+#if  BUILD_PLATFORM == WINDOWS_BUILD
+#define WINDOWS true
+#else
+ #define WINDOWS false
+ #include <pthread.h>
+#endif
 extern bool pause;
 extern float delay;
 typedef array <array <int, arrX>, arrY> Arr2d;

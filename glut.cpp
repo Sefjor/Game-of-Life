@@ -59,7 +59,7 @@ void renderScene(void)
         glColor3f(0.3f,0.5f,0.5f);
         printtext("delay=", delay, rx - size ,ry + arrY * size * 2 - 0.02);
        printtext("dx=", dx, rx + arrY * size - 4 * size, ry + arrY * size * 2 - 0.02);
-       printtext("dy", dy, rx + arrY * size * 2 - size * 8 , ry + arrY * size * 2 - 0.02);
+       printtext("dy=", dy, rx + arrY * size * 2 - size * 8 , ry + arrY * size * 2 - 0.02);
         glutSwapBuffers();
     }
 }
