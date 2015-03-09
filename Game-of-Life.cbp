@@ -41,7 +41,6 @@
 		<Unit filename="he.h" />
 		<Unit filename="include/myArray.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="math.cpp" />
 		<Unit filename="src/myArray.cpp" />
 		<Extensions>
 			<code_completion />

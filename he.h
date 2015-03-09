@@ -1,36 +1,25 @@
 #include <GL/freeglut.h>
 #include <iostream>
-#define arrX 29
-#define arrY 29
-#include <array>
 #include <cstring>
 #include <sstream>
 #include "myArray.h"
 using namespace std;
-#if  BUILD_PLATFORM == WINDOWS_BUILD
+#ifdef _WIN32
 #define WINDOWS true
 #else
- #define WINDOWS false
- #include <pthread.h>
+#define WINDOWS false
+#include <pthread.h>
 #endif
 extern bool pause;
 extern float delay;
-typedef array <array <int, arrX>, arrY> Arr2d;
-extern Arr2d save1Arr;
-extern Arr2d Arr;
-extern float size;
 extern float dx;
 extern float dy;
 extern float rx;
 extern float ry;
-void deleteArr(void);
-void printtext(string, float num, float posX, float posY);
-Arr2d randArr(Arr2d what_to_rand);
-Arr2d saveArr(void);
-void loadArr(Arr2d whattoload);
+extern myArray Arr;
+void printtext(string txt, float num, float posX, float posY);
 void changeSize(int w, int h);
 void idle(void);
 void key(unsigned char key, int x, int y);
-void recalc_array(void);
 void mouse(int button, int state, int x, int y );
 void renderScene(void);

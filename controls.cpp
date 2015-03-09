@@ -3,8 +3,7 @@ float dx = 2;//magic num
 float dy = 2;//for mouse coords, will be fixed with 2d
 void key(unsigned char key, int x, int y)
 {
-    switch (key)
-    {
+    switch (key) {
     case 27 :
     case ' ':
         exit(0);
@@ -36,28 +35,28 @@ void key(unsigned char key, int x, int y)
         break;
     case 'r':
     case 'R':
-        Arr = randArr(Arr);
+        Arr.randA();
         break;
     case 's':
-      save1Arr = saveArr();
+        Arr.saveA();
         break;
     case 'd':
-        deleteArr();
+        Arr.delA();
         break;
     case 'p':
         pause = !pause;
         break;
     case 'l':
-      loadArr(save1Arr);
+        Arr.loadA();
         break;
     }
 }
-void mouse(int button, int state, int x, int y )
+/*void mouse(int button, int state, int x, int y )
 {
     int x1 = (x - dx) * size * 2 ;
     int y1 = (y - dy) * size * 2;
     cout << button;
     if (!state)
-    if (x1 > -1 && y1 > -1 && x1 < arrX + 1 && y1 < arrY + 1)
+        if (x1 > -1 && y1 > -1 && x1 < arrX + 1 && y1 < arrY + 1)
             Arr[x1][arrY - y1] = !(button / 2);
-}
+} */
