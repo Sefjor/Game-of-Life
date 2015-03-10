@@ -1,6 +1,6 @@
 #include "he.h"
-float dx = 400;
-float dy = 400;
+float dx = 0;
+float dy = 0;
 void key(unsigned char key, int x, int y)
 {
     switch (key) {
@@ -53,10 +53,9 @@ void key(unsigned char key, int x, int y)
 }
 void mouse(int button, int state, int xM, int yM )
 {
-    int x = (xM - dx) * sz * 2;
-    int y = (yM - dy) * sz * 2;
-    cout << button;
+    int x =  ( 1.0 * xM /  glutGet(GLUT_WINDOW_WIDTH) - 0.5) / sz + 0.5;
+    int y = - (1.0 * yM / glutGet(GLUT_WINDOW_HEIGHT) - 0.5) / sz + 0.5;
     if (!state)
         if (Arr.exist(x, y))
-            Arr.setElement(x, Arr.maxY() - y, !(button / 2));
+            Arr.setElement(x, y, !(button / 2));
 }

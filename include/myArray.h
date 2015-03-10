@@ -27,7 +27,7 @@ public:
     void loadA();
     void recalcA();
     void setElement(int x, int y, int value);
-    bool exist(int x, int y);
+    bool exist(int x, int y);//
 };
 #endif // MYARRAY_H
 

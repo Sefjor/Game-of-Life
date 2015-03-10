@@ -55,7 +55,7 @@ void renderScene(void)
             }
         glEnd();
         glColor3f(0.3f,0.5f,0.5f);
-        printtext("delay=", delay, rx - sz ,ry + Arr.maxY() * sz * 2 );
+        printtext("delay=", delay, rx ,ry + Arr.maxY() * sz * 2 );
         printtext("dx=", dx, rx + Arr.maxY() * sz - 4 * sz, ry + Arr.maxY() * sz * 2);
         printtext("dy=", dy, rx + Arr.maxY() * sz * 2 - sz * 8 , ry + Arr.maxY() * sz * 2);
         glutSwapBuffers();
