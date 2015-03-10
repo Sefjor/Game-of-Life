@@ -16,6 +16,7 @@ extern float dx;
 extern float dy;
 extern float rx;
 extern float ry;
+extern float sz;
 extern myArray Arr;
 void printtext(string txt, float num, float posX, float posY);
 void changeSize(int w, int h);

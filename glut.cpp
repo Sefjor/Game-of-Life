@@ -1,9 +1,9 @@
 #include "he.h"
 float delay = 5; //render scene
 bool pause = 0;
-float rx = 0;//0 is center  f(x=0)=0
+float rx = 0;// position of matrix on screen
 float ry = 0;//0 is center  f(x=0)=0
-float sz = 0.03; //1/2 size of square
+float sz = 0.015; //1/2 size of square
 
 void changeSize(int w, int h)
 {
@@ -11,7 +11,7 @@ void changeSize(int w, int h)
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho( -2 * ar, 2 * ar, -2, 2, -1, 1);
+    gluOrtho2D( -ar, ar, -1, 1);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity() ;
 }
@@ -24,7 +24,7 @@ void renderScene(void)
         return;
     else timenext += delay;
 
-    if (!pause) {
+    if (!pause)
         Arr.recalcA();
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -35,14 +35,14 @@ void renderScene(void)
                 float xmod = (i * sz * 2 + rx);
                 float ymod = (j * sz * 2 + ry) ;
                 glColor3f(0.6f,0.7f,0.5f);
-                if (Arr.element(i,j)) {
-                glVertex2f(-sz + xmod, -sz + ymod);
-                glVertex2f(-sz + xmod, sz + ymod);
-                glVertex2f(sz + xmod, sz + ymod);
-                glVertex2f(sz + xmod, -sz + ymod);
+                if (Arr.getElement(i,j)) {
+                    glVertex2f(-sz + xmod, -sz + ymod);
+                    glVertex2f(-sz + xmod, sz + ymod);
+                    glVertex2f(sz + xmod, sz + ymod);
+                    glVertex2f(sz + xmod, -sz + ymod);
                 }
             }
-        glEnd();
+        glEnd(); //
         glLineWidth(0.5);
         glColor3f(0.3, 0.5, 0.6);
         glBegin(GL_LINES);
@@ -55,11 +55,10 @@ void renderScene(void)
             }
         glEnd();
         glColor3f(0.3f,0.5f,0.5f);
-        printtext("delay=", delay, rx - sz ,ry + Arr.maxY() * sz * 2 - 0.02);
-        printtext("dx=", dx, rx + Arr.maxY() * sz - 4 * sz, ry + Arr.maxY() * sz * 2 - 0.02);
-        printtext("dy=", dy, rx + Arr.maxY() * sz * 2 - sz * 8 , ry + Arr.maxY() * sz * 2 - 0.02);
+        printtext("delay=", delay, rx - sz ,ry + Arr.maxY() * sz * 2 );
+        printtext("dx=", dx, rx + Arr.maxY() * sz - 4 * sz, ry + Arr.maxY() * sz * 2);
+        printtext("dy=", dy, rx + Arr.maxY() * sz * 2 - sz * 8 , ry + Arr.maxY() * sz * 2);
         glutSwapBuffers();
-    }
 }
 void printtext(string txt, float num, float posX, float posY)
 {

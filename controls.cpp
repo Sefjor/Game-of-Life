@@ -1,6 +1,6 @@
 #include "he.h"
-float dx = 2;//magic num
-float dy = 2;//for mouse coords, will be fixed with 2d
+float dx = 400;
+float dy = 400;
 void key(unsigned char key, int x, int y)
 {
     switch (key) {
@@ -51,12 +51,12 @@ void key(unsigned char key, int x, int y)
         break;
     }
 }
-/*void mouse(int button, int state, int x, int y )
+void mouse(int button, int state, int xM, int yM )
 {
-    int x1 = (x - dx) * size * 2 ;
-    int y1 = (y - dy) * size * 2;
+    int x = (xM - dx) * sz * 2;
+    int y = (yM - dy) * sz * 2;
     cout << button;
     if (!state)
-        if (x1 > -1 && y1 > -1 && x1 < arrX + 1 && y1 < arrY + 1)
-            Arr[x1][arrY - y1] = !(button / 2);
-} */
+        if (Arr.exist(x, y))
+            Arr.setElement(x, Arr.maxY() - y, !(button / 2));
+}

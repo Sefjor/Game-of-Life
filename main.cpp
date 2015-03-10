@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     glutCreateWindow("LIFE");
     glutDisplayFunc(renderScene);
     glutKeyboardFunc(key);
-    // glutMouseFunc(mouse);
+    glutMouseFunc(mouse);
     glutReshapeFunc(changeSize);
     glutIdleFunc(renderScene);
     glutMainLoop();
