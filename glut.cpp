@@ -1,9 +1,9 @@
 #include "he.h"
 float delay = 5; //render scene
 bool pause = 0;
-float rx = 0;// position of matrix on screen
-float ry = 0;//0 is center  f(x=0)=0
-float sz = 0.015; //1/2 size of square
+float rx = -0.99;// position of matrix on screen
+float ry = -0.99;//0 is center  f(x=0)=0
+float sz = 0.03; //size of square
 
 void changeSize(int w, int h)
 {
@@ -32,14 +32,17 @@ void renderScene(void)
         glBegin(GL_QUADS);
         for (int i = 0; i < Arr.maxX(); i++)
             for (int j = 0; j < Arr.maxY(); j++) {
-                float xmod = (i * sz * 2 + rx);
-                float ymod = (j * sz * 2 + ry) ;
-                glColor3f(0.6f,0.7f,0.5f);
+                float xmod = (i * sz + rx);
+                float ymod = (j * sz + ry) ;
                 if (Arr.getElement(i,j)) {
-                    glVertex2f(-sz + xmod, -sz + ymod);
-                    glVertex2f(-sz + xmod, sz + ymod);
+                  if (Arr.getElement(i,j) == 1)
+                   glColor3f(0.6f, 0.7f, 0.5f);
+                if (Arr.getElement(i,j) == 2)
+                      glColor3f(0.4f, 0.5f, 0.5f);
+                    glVertex2f(xmod, ymod);
+                    glVertex2f(xmod, sz + ymod);
                     glVertex2f(sz + xmod, sz + ymod);
-                    glVertex2f(sz + xmod, -sz + ymod);
+                    glVertex2f(sz + xmod, ymod);
                 }
             }
         glEnd(); //
@@ -48,16 +51,16 @@ void renderScene(void)
         glBegin(GL_LINES);
         for (int i = 0; i < Arr.maxX() + 1; i++)
             for (int j = 0; j < Arr.maxY() + 1; j++) {
-                glVertex2f(rx - sz + i * sz * 2, ry-sz);
-                glVertex2f(rx - sz + i * sz * 2, ry-sz + Arr.maxY() * sz * 2);
-                glVertex2f(rx - sz, ry-sz + j * sz * 2);
-                glVertex2f(rx - sz + Arr.maxX() * sz * 2, ry-sz + j * sz * 2); //2.85 1.75
+                glVertex2f(rx + i * sz , ry);
+                glVertex2f(rx + i * sz, ry + Arr.maxY() * sz);
+                glVertex2f(rx, ry + j * sz );
+                glVertex2f(rx + Arr.maxX() * sz, ry + j * sz); //2.85 1.75
             }
         glEnd();
         glColor3f(0.3f,0.5f,0.5f);
-        printtext("delay=", delay, rx ,ry + Arr.maxY() * sz * 2 );
-        printtext("dx=", dx, rx + Arr.maxY() * sz - 4 * sz, ry + Arr.maxY() * sz * 2);
-        printtext("dy=", dy, rx + Arr.maxY() * sz * 2 - sz * 8 , ry + Arr.maxY() * sz * 2);
+        printtext("delay=", delay, rx ,ry + Arr.maxY() * sz );
+        printtext("dx=", dx, rx + Arr.maxY() * sz / 2 - 4 * sz, ry + Arr.maxY() * sz);
+        printtext("dy=", dy, rx + Arr.maxY() * sz - sz * 4 , ry + Arr.maxY() * sz);
         glutSwapBuffers();
 }
 void printtext(string txt, float num, float posX, float posY)

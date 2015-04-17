@@ -8,9 +8,11 @@ using namespace std;
 
 class myArray {
 private:
-    static const int aX = 29 ;
-    static const int aY = 29;
-    typedef array <array <int, aX>, aY> Arr2d;
+    static const int aX = 65;
+    static const int aY = 65;
+    template <class T, size_t ROW, size_t COL>
+using Matrix = std::array<std::array<T, COL>, ROW>;
+    typedef Matrix<int, aX, aY> Arr2d;
     Arr2d A;
     Arr2d Save1;
 

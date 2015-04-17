@@ -12,8 +12,8 @@ int main(int argc, char **argv)
 #endif
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
-    glutInitWindowPosition(50,50);
-    glutInitWindowSize(800,800);
+    glutInitWindowPosition(0,0);
+    glutInitWindowSize(1000,1000);
     glutCreateWindow("LIFE");
     glutDisplayFunc(renderScene);
     glutKeyboardFunc(key);

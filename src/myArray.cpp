@@ -72,7 +72,7 @@ void myArray::recalcA()
                 }
             switch (cter) {
             case 3 :  // creating cell
-                ArrT[i][j] = 1;
+                ArrT[i][j] = 2;
                 break;
             case 2 : // state remains
                 ArrT[i][j] = A[i][j];

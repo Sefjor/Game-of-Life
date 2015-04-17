@@ -22,16 +22,16 @@ void key(unsigned char key, int x, int y)
             delay = 0;
         break;
     case '1':
-        dx += 0.5;
+        rx += 0.5;
         break;
     case '2':
-        dx -= 0.5;
+        rx -= 0.5;
         break;
     case '3':
-        dy += 0.5;
+        ry += 0.5;
         break;
     case '4':
-        dy -= 0.5;
+        ry -= 0.5;
         break;
     case 'r':
     case 'R':
@@ -53,8 +53,8 @@ void key(unsigned char key, int x, int y)
 }
 void mouse(int button, int state, int xM, int yM )
 {
-    int x =  ( 1.0 * xM /  glutGet(GLUT_WINDOW_WIDTH) - 0.5) / sz + 0.5;
-    int y = - (1.0 * yM / glutGet(GLUT_WINDOW_HEIGHT) - 0.5) / sz + 0.5;
+    int x =  (2.0 * xM /  glutGet(GLUT_WINDOW_WIDTH) - 1 - rx ) / sz;
+    int y =  (2 - 2.0 * yM / glutGet(GLUT_WINDOW_HEIGHT) - 1 - ry) / sz;
     if (!state)
         if (Arr.exist(x, y))
             Arr.setElement(x, y, !(button / 2));
