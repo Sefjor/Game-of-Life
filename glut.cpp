@@ -1,9 +1,9 @@
 #include "he.h"
 float delay = 5; //render scene
 bool pause = 0;
-float rx = -0.99;// position of matrix on screen
-float ry = -0.99;//0 is center  f(x=0)=0
-float sz = 0.03; //size of square
+const float rx = -0.99;// position of matrix on screen
+const float ry = -0.99;//0 is center  f(x=0)=0
+const float sz = 0.03; //size of square
 
 void changeSize(int w, int h)
 {
